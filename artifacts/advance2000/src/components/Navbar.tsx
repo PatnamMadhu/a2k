@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Cloud,
   Menu,
   X,
   ChevronDown,
@@ -242,14 +241,14 @@ export default function Navbar() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-2"
+          className="flex items-center"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center">
-            <Cloud className="w-4 h-4 text-white" strokeWidth={2.5} />
-          </div>
-          <span className="text-white font-bold text-xl tracking-tight">
-            Advance<span className="text-cyan-400">2000</span>
-          </span>
+          <img
+            src="https://www.advance2000.com/wp-content/uploads/2024/07/advance2000logo.png"
+            alt="Advance2000"
+            className="h-9 w-auto object-contain"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
         </motion.a>
 
         {/* Desktop nav */}
