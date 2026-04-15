@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   Cloud,
   Shield,
@@ -254,46 +254,6 @@ function HeroSection() {
   );
 }
 
-const STATS = [
-  { value: "2X", label: "Performance of traditional public clouds" },
-  { value: "50%", label: "Lower cost potential" },
-  { value: "30+", label: "Years supporting critical IT" },
-  { value: "24x7", label: "Live proactive support" },
-];
-
-function StatsBanner() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <section
-      ref={ref}
-      className="relative z-20 -mt-8 mx-4 sm:mx-8 lg:mx-auto max-w-6xl"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="bg-white rounded-2xl shadow-2xl shadow-black/20 border border-slate-100 px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-8"
-      >
-        {STATS.map((stat, i) => (
-          <motion.div
-            key={stat.value}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 + i * 0.1, ease: "easeOut" }}
-            className="text-center"
-          >
-            <div className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-2">
-              {stat.value}
-            </div>
-            <p className="text-slate-500 text-sm leading-snug font-medium">{stat.label}</p>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
-  );
-}
 
 const SERVICES = [
   {
@@ -823,7 +783,6 @@ export default function Home() {
     <div className="font-sans antialiased">
       <Navbar />
       <HeroSection />
-      <StatsBanner />
       <ServicesSection />
       <ValuePillars />
       <ProofMetrics />
