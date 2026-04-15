@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import { motion, useInView } from "framer-motion";
 import {
