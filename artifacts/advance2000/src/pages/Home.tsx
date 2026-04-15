@@ -12,7 +12,11 @@ import {
   Phone,
 } from "lucide-react";
 
-const NAV_LINKS = ["What We Do", "Industries", "Our Approach"];
+const NAV_LINKS = [
+  { label: "What We Do", href: "#" },
+  { label: "Industries", href: "#" },
+  { label: "Our Approach", href: "/our-approach" },
+];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,11 +59,11 @@ function Navbar() {
         >
           {NAV_LINKS.map((link) => (
             <a
-              key={link}
-              href="#"
+              key={link.label}
+              href={link.href}
               className="text-white/80 hover:text-white text-sm font-medium transition-colors duration-200 relative group"
             >
-              {link}
+              {link.label}
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300" />
             </a>
           ))}
@@ -95,8 +99,8 @@ function Navbar() {
           className="md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10 px-4 py-4 flex flex-col gap-4"
         >
           {NAV_LINKS.map((link) => (
-            <a key={link} href="#" className="text-white/80 hover:text-white text-sm font-medium py-2">
-              {link}
+            <a key={link.label} href={link.href} className="text-white/80 hover:text-white text-sm font-medium py-2">
+              {link.label}
             </a>
           ))}
           <div className="flex flex-col gap-3 pt-2 border-t border-white/10">
