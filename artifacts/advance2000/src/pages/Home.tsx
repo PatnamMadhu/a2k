@@ -2,9 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   Cloud,
-  Shield,
-  Sparkles,
-  TrendingUp,
   Menu,
   X,
   ArrowRight,
@@ -15,6 +12,7 @@ import {
   ShieldCheck,
   Target,
 } from "lucide-react";
+import { WhatWeDoContent } from "@/pages/WhatWeDo";
 
 const NAV_LINKS = [
   { label: "What We Do", href: "/what-we-do" },
@@ -254,123 +252,6 @@ function HeroSection() {
   );
 }
 
-
-const SERVICES = [
-  {
-    id: "private-cloud",
-    icon: Cloud,
-    title: "Private Cloud Computing",
-    desc: "Dedicated high-performance infrastructure engineered for your workloads. Experience predictable speed, zero noisy-neighbor risk, and full sovereignty over your data — cloud power without the shared-cloud compromise.",
-    accent: "from-blue-500 to-cyan-500",
-    span: "lg:col-span-2",
-    size: "large",
-  },
-  {
-    id: "cybersecurity",
-    icon: Shield,
-    title: "Cybersecurity Risk",
-    desc: "Built-in visibility and continuous threat monitoring. Identify gaps, harden your perimeter, and stay one step ahead of evolving threats.",
-    accent: "from-violet-500 to-indigo-500",
-    span: "",
-    size: "square",
-  },
-  {
-    id: "private-ai",
-    icon: Sparkles,
-    title: "Private AI",
-    desc: "Secure AI modernization within your own trusted environment. Harness the power of machine learning without sacrificing data privacy.",
-    accent: "from-teal-500 to-emerald-500",
-    span: "",
-    size: "square",
-  },
-  {
-    id: "it-strategy",
-    icon: TrendingUp,
-    title: "IT Strategy & Modernization",
-    desc: "Strategic planning and hands-on transformation — from legacy migration to cloud-native architecture — aligned to your business objectives and growth trajectory.",
-    accent: "from-orange-500 to-amber-500",
-    span: "lg:col-span-2",
-    size: "wide",
-  },
-];
-
-function ServiceCard({
-  service,
-  index,
-}: {
-  service: (typeof SERVICES)[number];
-  index: number;
-}) {
-  const Icon = service.icon;
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className={`group bg-white border border-slate-200 hover:border-blue-200 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 cursor-pointer ${service.span}`}
-    >
-      <div
-        className={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${service.accent} items-center justify-center mb-6 shadow-lg`}
-      >
-        <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
-      </div>
-
-      <h3 className="text-slate-900 font-bold text-xl mb-3 group-hover:text-blue-700 transition-colors duration-200">
-        {service.title}
-      </h3>
-      <p className="text-slate-500 text-sm leading-relaxed">{service.desc}</p>
-
-      <div className="mt-6 flex items-center gap-2 text-blue-500 text-sm font-semibold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-        <span>Learn more</span>
-        <ArrowRight className="w-4 h-4" />
-      </div>
-    </motion.div>
-  );
-}
-
-function ServicesSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-    <section className="bg-slate-50 py-28 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full border border-blue-100 mb-4">
-            Our Services
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-            Enterprise-Grade Capabilities,{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Unified.
-            </span>
-          </h2>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Every service is designed to interlock — so your infrastructure,
-            security, and strategy move as one.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {SERVICES.map((service, i) => (
-            <ServiceCard key={service.id} service={service} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function WhySection() {
   const ref = useRef(null);
@@ -789,7 +670,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProofMetrics />
-      <ServicesSection />
+      <WhatWeDoContent />
       <ValuePillars />
       <ExecutiveInsights />
       <WhySection />

@@ -550,18 +550,29 @@ function Footer() {
 }
 
 /* ──────────────────────────────────────────────────
-   PAGE EXPORT
+   SHARED CONTENT (used inside Home.tsx too)
 ────────────────────────────────────────────────── */
-export default function WhatWeDo() {
+export function WhatWeDoContent() {
   return (
-    <div className="font-sans antialiased bg-slate-950">
-      <Navbar />
+    <>
       <HeroSplit />
       <VideoValue />
       <HiddenCosts />
       <ModelComparison />
       <CapabilitiesGrid />
       <FinalCTA />
+    </>
+  );
+}
+
+/* ──────────────────────────────────────────────────
+   PAGE EXPORT
+────────────────────────────────────────────────── */
+export default function WhatWeDo() {
+  return (
+    <div className="font-sans antialiased bg-slate-950">
+      <Navbar />
+      <WhatWeDoContent />
       <Footer />
     </div>
   );
