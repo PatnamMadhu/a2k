@@ -183,28 +183,103 @@ function WhyWeDoSection() {
           </motion.div>
         </div>
 
-        {/* Right — staggered photo grid */}
-        <div className="grid grid-cols-3 gap-3">
-          {PHOTOS.map((photo, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: 0.1 + i * 0.07,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className={`rounded-xl overflow-hidden ${photo.tall ? "row-span-2" : ""}`}
-            >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-full object-cover"
-                style={{ minHeight: photo.tall ? "280px" : "130px" }}
-              />
-            </motion.div>
-          ))}
+        {/* Right — bento photo grid */}
+        <div
+          className="grid gap-3"
+          style={{
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gridTemplateRows: "188px 188px 192px",
+          }}
+        >
+          {/* Photo 1 — tall left, spans 2 rows */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl overflow-hidden ring-1 ring-white/8 group"
+            style={{ gridColumn: "1", gridRow: "1 / span 2" }}
+          >
+            <img
+              src={PHOTOS[0].src}
+              alt={PHOTOS[0].alt}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
+
+          {/* Photo 2 — top middle */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl overflow-hidden ring-1 ring-white/8 group"
+            style={{ gridColumn: "2", gridRow: "1" }}
+          >
+            <img
+              src={PHOTOS[1].src}
+              alt={PHOTOS[1].alt}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
+
+          {/* Photo 3 — top right */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl overflow-hidden ring-1 ring-white/8 group"
+            style={{ gridColumn: "3", gridRow: "1" }}
+          >
+            <img
+              src={PHOTOS[2].src}
+              alt={PHOTOS[2].alt}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
+
+          {/* Photo 4 — wide, middle right, spans cols 2-3 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl overflow-hidden ring-1 ring-white/8 group"
+            style={{ gridColumn: "2 / span 2", gridRow: "2" }}
+          >
+            <img
+              src={PHOTOS[3].src}
+              alt={PHOTOS[3].alt}
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
+
+          {/* Photo 5 — wide bottom left, spans cols 1-2 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl overflow-hidden ring-1 ring-white/8 group"
+            style={{ gridColumn: "1 / span 2", gridRow: "3" }}
+          >
+            <img
+              src={PHOTOS[4].src}
+              alt={PHOTOS[4].alt}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
+
+          {/* Photo 6 — bottom right */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.36, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-2xl overflow-hidden ring-1 ring-white/8 group"
+            style={{ gridColumn: "3", gridRow: "3" }}
+          >
+            <img
+              src={PHOTOS[5].src}
+              alt={PHOTOS[5].alt}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
