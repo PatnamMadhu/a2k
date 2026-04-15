@@ -135,10 +135,10 @@ function HeroSplit() {
               </div>
             ))}
           </div>
-          <button className="mt-8 group flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors">
+          <a href="/contact" className="mt-8 group flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors">
             Schedule your briefing
             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </motion.div>
       </div>
     </Section>
@@ -477,14 +477,15 @@ function FinalCTA() {
         </div>
 
         <div className="relative z-10 shrink-0">
-          <motion.button
+          <motion.a
+            href="/contact"
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="group flex items-center gap-2 border border-slate-500 hover:border-blue-400 text-slate-200 hover:text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all whitespace-nowrap"
           >
             Schedule Executive Briefing
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          </motion.a>
         </div>
       </motion.div>
     </Section>

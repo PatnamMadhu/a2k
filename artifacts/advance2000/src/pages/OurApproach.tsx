@@ -75,6 +75,7 @@ function HeroSection() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold text-base transition-all shadow-2xl shadow-blue-600/40 hover:shadow-blue-500/50"
+            onClick={() => window.location.href = "/contact"}
           >
             Schedule Your Strategy Call Today
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -545,6 +546,7 @@ function FinalCTA() {
           whileHover={{ scale: 1.04, y: -2 }}
           whileTap={{ scale: 0.97 }}
           className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-xl font-semibold text-base transition-all shadow-2xl shadow-blue-600/40 hover:shadow-blue-500/50"
+          onClick={() => window.location.href = "/contact"}
         >
           Book a Meeting
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

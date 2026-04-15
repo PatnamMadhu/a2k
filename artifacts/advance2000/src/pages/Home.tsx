@@ -97,6 +97,7 @@ function HeroSection() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="group flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-xl text-base font-semibold transition-all duration-200 shadow-xl shadow-blue-500/40 hover:shadow-blue-400/50 w-full sm:w-auto"
+            onClick={() => window.location.href = "/our-approach"}
           >
             See Our Approach
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -105,6 +106,7 @@ function HeroSection() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="flex items-center gap-2 border border-white/20 hover:border-cyan-400/50 text-white hover:text-cyan-300 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-200 backdrop-blur-sm w-full sm:w-auto"
+            onClick={() => window.location.href = "/contact"}
           >
             <Phone className="w-4 h-4" />
             Book an Assessment
@@ -202,6 +204,7 @@ function WhySection() {
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="mt-10 group flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40"
+            onClick={() => window.location.href = "/contact"}
           >
             Start a Conversation
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -334,6 +337,7 @@ function CTASection() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="group flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-xl shadow-blue-500/40"
+            onClick={() => window.location.href = "/contact"}
           >
             Book Free Assessment
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -342,6 +346,7 @@ function CTASection() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-xl font-semibold transition-all backdrop-blur-sm"
+            onClick={() => window.location.href = "/contact"}
           >
             Talk to an Expert
           </motion.button>
@@ -583,6 +588,7 @@ function ExecutiveInsights() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-500/35"
+            onClick={() => window.location.href = "/contact"}
           >
             Get Your Free Assessment
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
