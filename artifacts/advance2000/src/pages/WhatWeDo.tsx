@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import Navbar from "@/components/Navbar";
 import { motion, useInView } from "framer-motion";
 import {
   Cloud,
@@ -486,39 +487,6 @@ function FinalCTA() {
         </div>
       </motion.div>
     </Section>
-  );
-}
-
-/* ──────────────────────────────────────────────────
-   NAVBAR
-────────────────────────────────────────────────── */
-function Navbar() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-            <Cloud className="w-4 h-4 text-white" strokeWidth={2.5} />
-          </div>
-          <span className="font-bold text-white text-lg tracking-tight">
-            Advance<span className="text-cyan-400">2000</span>
-          </span>
-        </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-          <a href="/what-we-do" className="text-blue-400 font-semibold">What We Do</a>
-          <a href="/" className="hover:text-white transition-colors">Industries</a>
-          <a href="/our-approach" className="hover:text-white transition-colors">Our Approach</a>
-        </nav>
-        <div className="flex items-center gap-3">
-          <button className="hidden sm:block border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all">
-            Client Login
-          </button>
-          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-md shadow-blue-600/20">
-            Contact Us
-          </button>
-        </div>
-      </div>
-    </header>
   );
 }
 

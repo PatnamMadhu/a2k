@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import Navbar from "@/components/Navbar";
 import { motion, useInView } from "framer-motion";
 import {
   Zap,
@@ -9,7 +10,6 @@ import {
   HeadphonesIcon,
   ArrowRight,
   CheckCircle,
-  Cloud,
   ChevronRight,
   Building2,
   Scale,
@@ -22,46 +22,6 @@ function fadeUp(delay = 0) {
     viewport: { once: true, margin: "-60px" },
     transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
   };
-}
-
-/* ── NAVBAR ── */
-function Navbar() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-            <Cloud className="w-4 h-4 text-white" strokeWidth={2.5} />
-          </div>
-          <span className="font-bold text-slate-900 text-lg tracking-tight">
-            Advance<span className="text-blue-600">2000</span>
-          </span>
-        </div>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
-          <a href="/" className="hover:text-slate-900 transition-colors">
-            What We Do
-          </a>
-          <a href="/" className="hover:text-slate-900 transition-colors">
-            Who We Are
-          </a>
-          <a href="/our-approach" className="text-blue-600 font-semibold">
-            Our Approach
-          </a>
-          <a href="/" className="hover:text-slate-900 transition-colors">
-            Careers
-          </a>
-        </nav>
-        <div className="flex items-center gap-3">
-          <button className="hidden sm:block border border-slate-200 text-slate-700 hover:border-blue-300 hover:text-blue-600 px-4 py-2 rounded-lg text-sm font-medium transition-all">
-            Client Login
-          </button>
-          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-md shadow-blue-600/20">
-            Contact Us
-          </button>
-        </div>
-      </div>
-    </header>
-  );
 }
 
 /* ── HERO ── */
