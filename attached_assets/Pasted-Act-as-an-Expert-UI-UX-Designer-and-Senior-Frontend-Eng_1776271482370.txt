@@ -1,0 +1,39 @@
+Act as an Expert UI/UX Designer and Senior Frontend Engineer. I need to build a sequence of highly specific UI components to drop into an existing React page. 
+
+Tech Stack: React, Tailwind CSS, Framer Motion, and Lucide React.
+Design Language: Deep midnight blue/navy background (bg-slate-950) for the main wrapper. Cards should be either crisp white (text-slate-900) or deep navy glassmorphic. Typography is Inter.
+
+Please generate a single React component (e.g., `<Advance2000MainContent />`) that stacks the following 6 sections exactly as described:
+
+1. Hero Split Section
+- Left Column: "Modernize Your IT." (Large, bold white). Subtext: "Too many vendors. No accountability. Rising cost. Hidden risk. Advance2000 replaces it with one high-performance, fully managed system built for better business outcomes." Buttons: "Get Your IT Risk Score" (Solid blue) and "Watch the Overview" (Dark outline). Below buttons, a row of 3 small, dark outline cards with text: "Driving better IT for better outcomes", "Faster systems with dedicated private cloud performance", "Built-in security, visibility, and real accountability".
+- Right Column: A dark-blue card (slightly lighter than background) with top-right subtle glow. Kicker: "WHAT EXECUTIVES NEED TO KNOW". Title: "Your biggest IT problem may not be technology. It may be the model." Description text, followed by 3 checkmark list items (e.g., "Find where your business is overpaying for underperforming IT").
+
+2. Video & Value Section
+- Left: A white card (rounded-3xl). Heading: "Better IT, Better Business, and Happier Clients." Below it, 3 list items with blue checkmarks.
+- Right: A dark container holding an embedded YouTube video iframe (use src="https://www.youtube.com/embed/e7JpcZBoXzM"). Top bar of video container says "Advance2000 Video Overview".
+
+3. Hidden Costs Section (Centered Text + 2 Columns)
+- Centered Heading (White): "IT has become a core business function." + Subtext paragraph.
+- Grid of 2 white cards below it:
+  - Card 1: "The biggest IT cost is often the one you do not see." + paragraph + 4 bullet points (light blue dots).
+  - Card 2: "Most businesses are overspending on IT and still underperforming." + paragraph + 4 bullet points (light blue dots).
+
+4. The Model Comparison ("VS" Section)
+- Centered Heading: "The problem is not your IT team. It is the model." + Subtext.
+- Grid of 2 white cards separated by a blue "VS" text in the middle.
+  - Card 1: Pill tag "TRADITIONAL IT MODEL" (Light red bg, red text). Heading: "More vendors. More friction. Less accountability." List 4 negative items with small blue 'x' icons.
+  - Card 2: Pill tag "ADVANCE2000 MODEL" (Light blue bg, blue text). Heading: "One integrated system. One partner. Total accountability." List 4 positive items with blue checkmarks.
+
+5. Capabilities Grid (Bento Box)
+- Centered Heading: "We provide a complete IT system, not a collection of services." + Subtext.
+- 6-card grid (3 cols desktop, 2 tablet, 1 mobile).
+- All cards are white, rounded-2xl. Each has a top-left soft-colored icon container (Lucide icons: Cloud, Wrench, Shield, RefreshCw, Handshake, BarChart).
+- Titles: "High-Performance Private Cloud", "Managed IT With Real Accountability", "Cybersecurity and Risk Visibility", "Backup, Recovery, and Continuity", "Secure Collaboration", "Executive Visibility". Include short subtext for each.
+
+6. Final CTA Banner
+- A wide, dark blue card spanning the container, with a subtle lighter blue glow on the left.
+- Heading (White): "See what your IT is really costing you." + Subtext.
+- Button (Right-aligned): "Schedule Executive Briefing" (Dark outline button).
+
+Ensure spacing (gap and padding) matches a premium, airy SaaS layout. Use Framer Motion for subtle scroll-into-view animations on each section. Return the complete code in a single file.

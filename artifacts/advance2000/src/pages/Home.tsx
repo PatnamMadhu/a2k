@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "What We Do", href: "#" },
+  { label: "What We Do", href: "/what-we-do" },
   { label: "Industries", href: "#" },
   { label: "Our Approach", href: "/our-approach" },
 ];
