@@ -10,6 +10,7 @@ import {
   HeadphonesIcon,
   ArrowRight,
   CheckCircle,
+  Cloud,
   ChevronRight,
   Building2,
   Scale,
