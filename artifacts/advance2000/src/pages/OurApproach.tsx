@@ -20,7 +20,7 @@ function fadeUp(delay = 0) {
     initial: { opacity: 0, y: 28 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-60px" },
-    transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
   };
 }
 
@@ -42,10 +42,13 @@ function Navbar() {
             What We Do
           </a>
           <a href="/" className="hover:text-slate-900 transition-colors">
-            Industries
+            Who We Are
           </a>
           <a href="/our-approach" className="text-blue-600 font-semibold">
             Our Approach
+          </a>
+          <a href="/" className="hover:text-slate-900 transition-colors">
+            Careers
           </a>
         </nav>
         <div className="flex items-center gap-3">

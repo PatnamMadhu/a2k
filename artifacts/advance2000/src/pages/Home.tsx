@@ -14,11 +14,13 @@ import {
 } from "lucide-react";
 import { WhatWeDoContent } from "@/pages/WhatWeDo";
 import Partnerships from "@/components/Partnerships";
+import ContactSection from "@/components/ContactSection";
 
 const NAV_LINKS = [
   { label: "What We Do", href: "/what-we-do" },
-  { label: "Industries", href: "#" },
+  { label: "Who We Are", href: "#" },
   { label: "Our Approach", href: "/our-approach" },
+  { label: "Careers", href: "#" },
 ];
 
 function Navbar() {
@@ -101,8 +103,12 @@ function Navbar() {
           exit={{ opacity: 0, height: 0 }}
           className="md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10 px-4 py-4 flex flex-col gap-4"
         >
-          {NAV_LINKS.map((link) => (
-            <a key={link.label} href={link.href} className="text-white/80 hover:text-white text-sm font-medium py-2">
+          {NAV_LINKS.map((link, i) => (
+            <a
+              key={`mobile-${i}`}
+              href={link.href}
+              className="text-white/80 hover:text-white text-sm font-medium py-2"
+            >
               {link.label}
             </a>
           ))}
@@ -133,8 +139,18 @@ function HeroSection() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#3b82f6" strokeWidth="0.5" />
+            <pattern
+              id="grid"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="#3b82f6"
+                strokeWidth="0.5"
+              />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -227,12 +243,17 @@ function HeroSection() {
           transition={{ duration: 1, delay: 1.2 }}
           className="mt-16 flex flex-wrap justify-center gap-6"
         >
-          {["SOC 2 Certified", "HIPAA Ready", "ISO 27001 Aligned"].map((badge) => (
-            <div key={badge} className="flex items-center gap-2 text-slate-400">
-              <CheckCircle className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm">{badge}</span>
-            </div>
-          ))}
+          {["SOC 2 Certified", "HIPAA Ready", "ISO 27001 Aligned"].map(
+            (badge) => (
+              <div
+                key={badge}
+                className="flex items-center gap-2 text-slate-400"
+              >
+                <CheckCircle className="w-4 h-4 text-cyan-400" />
+                <span className="text-sm">{badge}</span>
+              </div>
+            ),
+          )}
         </motion.div>
       </div>
 
@@ -242,7 +263,9 @@ function HeroSection() {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-slate-500 text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-slate-500 text-xs tracking-widest uppercase">
+          Scroll
+        </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -252,7 +275,6 @@ function HeroSection() {
     </section>
   );
 }
-
 
 function WhySection() {
   const ref = useRef(null);
@@ -293,7 +315,9 @@ function WhySection() {
                 className="flex items-start gap-3"
               >
                 <CheckCircle className="w-5 h-5 text-cyan-500 mt-0.5 shrink-0" />
-                <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
+                <span className="text-slate-600 text-sm leading-relaxed">
+                  {item}
+                </span>
               </motion.div>
             ))}
           </div>
@@ -327,15 +351,37 @@ function WhySection() {
                 </span>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-emerald-400 text-xs font-mono">LIVE</span>
+                  <span className="text-emerald-400 text-xs font-mono">
+                    LIVE
+                  </span>
                 </div>
               </div>
 
               {[
-                { label: "Uptime SLA", value: "99.99%", color: "text-emerald-400", bar: "w-full" },
-                { label: "Threat Events Blocked", value: "14,203", color: "text-blue-400", bar: "w-4/5" },
-                { label: "Avg Response Time", value: "< 2 min", color: "text-cyan-400", bar: "w-3/4" },
-                { label: "Cost vs. Cloud Avg.", value: "–47%", color: "text-teal-400", bar: "w-1/2" },
+                {
+                  label: "Uptime SLA",
+                  value: "99.99%",
+                  color: "text-emerald-400",
+                  bar: "w-full",
+                },
+                {
+                  label: "Threat Events Blocked",
+                  value: "14,203",
+                  color: "text-blue-400",
+                  bar: "w-4/5",
+                },
+                {
+                  label: "Avg Response Time",
+                  value: "< 2 min",
+                  color: "text-cyan-400",
+                  bar: "w-3/4",
+                },
+                {
+                  label: "Cost vs. Cloud Avg.",
+                  value: "–47%",
+                  color: "text-teal-400",
+                  bar: "w-1/2",
+                },
               ].map((metric, i) => (
                 <motion.div
                   key={metric.label}
@@ -345,8 +391,12 @@ function WhySection() {
                   className="space-y-2"
                 >
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400 text-xs">{metric.label}</span>
-                    <span className={`${metric.color} text-sm font-bold font-mono`}>
+                    <span className="text-slate-400 text-xs">
+                      {metric.label}
+                    </span>
+                    <span
+                      className={`${metric.color} text-sm font-bold font-mono`}
+                    >
                       {metric.value}
                     </span>
                   </div>
@@ -356,7 +406,16 @@ function WhySection() {
                       animate={isInView ? { width: "100%" } : {}}
                       transition={{ duration: 1, delay: 0.6 + i * 0.15 }}
                       className={`h-full ${metric.bar} bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full`}
-                      style={{ maxWidth: metric.bar.replace("w-", "") === "full" ? "100%" : metric.bar.replace("w-", "") === "4/5" ? "80%" : metric.bar.replace("w-", "") === "3/4" ? "75%" : "50%" }}
+                      style={{
+                        maxWidth:
+                          metric.bar.replace("w-", "") === "full"
+                            ? "100%"
+                            : metric.bar.replace("w-", "") === "4/5"
+                              ? "80%"
+                              : metric.bar.replace("w-", "") === "3/4"
+                                ? "75%"
+                                : "50%",
+                      }}
                     />
                   </div>
                 </motion.div>
@@ -500,12 +559,18 @@ function ValuePillars() {
                 key={pillar.headline}
                 initial={{ opacity: 0, y: 28 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.1 + i * 0.12,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 className={`group relative rounded-2xl border border-slate-700/60 bg-slate-800/60 backdrop-blur-sm p-8 shadow-lg hover:shadow-xl ${pillar.glow} hover:border-slate-600 transition-all duration-300 overflow-hidden`}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none rounded-2xl" />
-                <div className={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${pillar.accent} items-center justify-center mb-6 shadow-lg`}>
+                <div
+                  className={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${pillar.accent} items-center justify-center mb-6 shadow-lg`}
+                >
                   <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
                 </div>
                 <p className="text-white/90 font-semibold text-lg leading-snug">
@@ -525,10 +590,17 @@ function ValuePillars() {
 ───────────────────────────────────────────── */
 const PROOF_METRICS = [
   { value: "2X", desc: "The performance of traditional public clouds" },
-  { value: "50%", desc: "Lower cost potential vs. fragmented public cloud stacks" },
+  {
+    value: "50%",
+    desc: "Lower cost potential vs. fragmented public cloud stacks",
+  },
   { value: "30+", desc: "Years supporting business-critical IT environments" },
   { value: "24x7", desc: "Live support coverage with proactive oversight" },
-  { value: "4.7/5", label: "Stars", desc: "End-user satisfaction driven by accountability" },
+  {
+    value: "4.7/5",
+    label: "Stars",
+    desc: "End-user satisfaction driven by accountability",
+  },
 ];
 
 function ProofMetrics() {
@@ -552,14 +624,20 @@ function ProofMetrics() {
               key={m.value}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.09, ease: "easeOut" }}
+              transition={{
+                duration: 0.5,
+                delay: 0.1 + i * 0.09,
+                ease: "easeOut",
+              }}
               className="px-6 py-8 flex flex-col items-center text-center group hover:bg-blue-50/50 transition-colors duration-200"
             >
               <div className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-none mb-1">
                 {m.value}
               </div>
               {m.label && (
-                <span className="text-blue-500 text-xs font-semibold">{m.label}</span>
+                <span className="text-blue-500 text-xs font-semibold">
+                  {m.label}
+                </span>
               )}
               <p className="text-slate-500 text-xs sm:text-sm leading-snug mt-2 max-w-[120px] font-medium">
                 {m.desc}
@@ -618,7 +696,11 @@ function ExecutiveInsights() {
               key={insight.text}
               initial={{ opacity: 0, x: -24 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.55,
+                delay: 0.1 + i * 0.12,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               whileHover={{ scale: 1.015, transition: { duration: 0.18 } }}
               className="group relative flex items-center gap-6 bg-white border border-slate-200 hover:border-blue-300 rounded-2xl px-8 py-7 shadow-sm hover:shadow-lg hover:shadow-blue-500/8 transition-all duration-300 cursor-default overflow-hidden"
             >
@@ -632,7 +714,9 @@ function ExecutiveInsights() {
                 <p className="text-slate-900 font-semibold text-base sm:text-lg leading-snug group-hover:text-blue-900 transition-colors">
                   {insight.text}
                 </p>
-                <p className="text-slate-400 text-sm mt-1 leading-snug">{insight.subtext}</p>
+                <p className="text-slate-400 text-sm mt-1 leading-snug">
+                  {insight.subtext}
+                </p>
               </div>
 
               <div className="shrink-0 ml-auto">
@@ -671,11 +755,12 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProofMetrics />
-      <Partnerships />
       <WhatWeDoContent />
       <ValuePillars />
+      <Partnerships />
       <ExecutiveInsights />
       <WhySection />
+      <ContactSection />
       <CTASection />
       <Footer />
     </div>

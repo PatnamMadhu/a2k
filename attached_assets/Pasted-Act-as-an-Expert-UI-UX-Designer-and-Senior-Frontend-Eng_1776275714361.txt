@@ -1,0 +1,27 @@
+Act as an Expert UI/UX Designer and Senior Frontend Engineer. I need to build a premium "Contact Us" section for a B2B SaaS React application.
+
+Tech Stack: React, Tailwind CSS, Framer Motion, and Lucide React.
+Design Language: High-trust, airy corporate aesthetic. Background is a very soft slate (bg-slate-50).
+
+Please build the component with a 50/50 split layout (stacking on mobile, side-by-side on desktop):
+
+1. Left Column (Contact Info & CTA):
+- Main Heading: "Contact Us" (Text-slate-900, bold, text-4xl or 5xl, tracking-tight).
+- Subheading text directly below: "Thank You for Visiting Our Site" (Text-slate-600, font-medium).
+- A solid blue CTA button (bg-blue-600 hover:bg-blue-500 rounded-xl px-6 py-3 font-semibold shadow-md mt-6 mb-10): "Book a meeting".
+- Below the button, create two clean icon+text rows (using Lucide icons: PhoneCall, Send):
+  - Row 1: "(800) 238-2621"
+  - Row 2: "info@advance2000.com"
+  - Make the icons a vibrant blue/cyan to match the brand accents, and the text slate-700.
+
+2. Right Column (The Form Card):
+- The form should be housed inside a beautiful, elevated card: bg-white, rounded-3xl, shadow-xl (shadow-slate-200/60), and generous padding (p-10).
+- Form Heading: "Schedule a meeting with an expert." (Bold, text-2xl mb-8).
+- The Fields (Use modern floating labels or placeholder text, with clean borders that turn blue on focus):
+  - Row 1 (2 columns): "First name" and "Last name".
+  - Row 2 (2 columns): "Company" and "Work Email". (Note: changing to "Work Email" improves B2B context).
+  - Row 3 (Full width): "Phone Number".
+  - Row 4 (Full width): "How can we help you?" (A textarea instead of "Additional info" to make it more conversational, roughly 4 rows high).
+- Submit Button: Centered at the bottom of the form. Use the primary blue color, fully rounded (rounded-full or rounded-xl), wide enough to look substantial, text "Submit".
+
+Ensure all inputs have subtle focus rings (focus:ring-2 focus:ring-blue-500/50 outline-none) and smooth transitions. Wrap the two columns in Framer Motion components so the left text fades in, and the right form card slides up slightly upon entering the viewport. Return the complete code in a single file.
