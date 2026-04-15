@@ -20,7 +20,7 @@ function fadeUp(delay = 0) {
     initial: { opacity: 0, y: 28 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-60px" },
-    transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] as const },
   };
 }
 
@@ -38,9 +38,15 @@ function Navbar() {
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
-          <a href="/" className="hover:text-slate-900 transition-colors">What We Do</a>
-          <a href="/" className="hover:text-slate-900 transition-colors">Industries</a>
-          <a href="/our-approach" className="text-blue-600 font-semibold">Our Approach</a>
+          <a href="/" className="hover:text-slate-900 transition-colors">
+            What We Do
+          </a>
+          <a href="/" className="hover:text-slate-900 transition-colors">
+            Industries
+          </a>
+          <a href="/our-approach" className="text-blue-600 font-semibold">
+            Our Approach
+          </a>
         </nav>
         <div className="flex items-center gap-3">
           <button className="hidden sm:block border border-slate-200 text-slate-700 hover:border-blue-300 hover:text-blue-600 px-4 py-2 rounded-lg text-sm font-medium transition-all">
@@ -62,9 +68,17 @@ function HeroSection() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/12 rounded-full blur-[120px]" />
         <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-3xl" />
-        <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full opacity-[0.04]"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <defs>
-            <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+            <pattern
+              id="dots"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
               <circle cx="1" cy="1" r="1" fill="#60a5fa" />
             </pattern>
           </defs>
@@ -73,9 +87,14 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-1.5 mb-8">
+        <motion.div
+          {...fadeUp(0.1)}
+          className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-1.5 mb-8"
+        >
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          <span className="text-cyan-300 text-xs font-semibold tracking-widest uppercase">Our Approach</span>
+          <span className="text-cyan-300 text-xs font-semibold tracking-widest uppercase">
+            Our Approach
+          </span>
         </motion.div>
 
         <motion.h1
@@ -86,8 +105,7 @@ function HeroSection() {
           <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
             strengthen
           </span>{" "}
-          your business,{" "}
-          <br className="hidden sm:block" />
+          your business, <br className="hidden sm:block" />
           not complicate it.
         </motion.h1>
 
@@ -115,67 +133,106 @@ function HeroSection() {
   );
 }
 
-/* ── ELIMINATE GRID ── */
+/* ── HORIZONTALLY ALIGNED VIDEO & FEATURES ── */
+/* ── HORIZONTALLY ALIGNED VIDEO & FEATURES (PATCHED) ── */
 const ELIMINATE_CARDS = [
   {
     icon: Zap,
     title: "Eliminate Operational Friction",
     body: "Slow systems, downtime, and fragmented vendors quietly reduce productivity and increase management burden.",
     accent: "from-blue-500 to-cyan-500",
-    glow: "group-hover:shadow-blue-500/10",
+    glow: "group-hover:border-blue-200 group-hover:shadow-blue-500/10",
+    iconColor: "text-blue-50",
   },
   {
     icon: ShieldAlert,
     title: "Eliminate Risk Exposure",
     body: "Cybersecurity gaps, weak backups, and poor standardization create real business risk that leadership often cannot see clearly.",
     accent: "from-violet-500 to-indigo-500",
-    glow: "group-hover:shadow-violet-500/10",
+    glow: "group-hover:border-violet-200 group-hover:shadow-violet-500/10",
+    iconColor: "text-violet-50",
   },
   {
     icon: DollarSign,
     title: "Eliminate Hidden Costs",
-    body: "Many organizations are paying too much for environments that still underperform and still require multiple providers to operate.",
+    body: "Many organizations pay too much for environments that underperform and require multiple providers to operate.",
     accent: "from-teal-500 to-emerald-500",
-    glow: "group-hover:shadow-teal-500/10",
+    glow: "group-hover:border-teal-200 group-hover:shadow-teal-500/10",
+    iconColor: "text-teal-50",
   },
 ];
 
 function EliminateGrid() {
   return (
-    <section className="bg-slate-50 py-28 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <motion.div {...fadeUp(0)} className="text-center mb-16">
+    <section className="bg-slate-50 py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div
+          {...fadeUp(0)}
+          className="text-center mb-16 max-w-3xl mx-auto"
+        >
           <span className="inline-block bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full border border-blue-100 mb-4">
             The Core Problem
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
             Three problems holding your business back.
           </h2>
-          <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            Most IT environments suffer from all three simultaneously — and they compound each other.
+          <p className="text-slate-500 text-lg">
+            Most IT environments suffer from all three simultaneouslyand they
+            compound each other.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {ELIMINATE_CARDS.map((card, i) => {
-            const Icon = card.icon;
-            return (
-              <motion.div
-                key={card.title}
-                {...fadeUp(i * 0.1)}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className={`group bg-white border border-slate-200 hover:border-blue-200 rounded-2xl p-8 shadow-sm hover:shadow-xl ${card.glow} transition-all duration-300 cursor-default`}
-              >
-                <div className={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${card.accent} items-center justify-center mb-6 shadow-lg`}>
-                  <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
-                </div>
-                <h3 className="text-slate-900 font-bold text-xl mb-3 leading-snug group-hover:text-blue-700 transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{card.body}</p>
-              </motion.div>
-            );
-          })}
+        {/* 50/50 Split Layout - FORCED ALIGNMENT */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+          {/* Left Side: Video Container */}
+          <motion.div
+            {...fadeUp(0.1)}
+            className="relative w-full rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/50 border border-slate-200 bg-slate-900 h-full flex flex-col justify-center"
+          >
+            {/* Added aspect-video wrapper inside to maintain ratio, but allowing parent to stretch */}
+            <div className="relative w-full pt-[56.25%]">
+              <iframe
+                src="https://www.youtube.com/embed/4FdYheDJCZ4?rel=0"
+                title="Advance2000 The Core Problem"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full border-0 object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right Side: 3 Horizontal Points */}
+          <div className="flex flex-col justify-between h-full gap-4 sm:gap-6">
+            {ELIMINATE_CARDS.map((card, i) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={card.title}
+                  {...fadeUp(0.2 + i * 0.1)}
+                  whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                  className={`group flex items-start gap-5 bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg ${card.glow} transition-all duration-300 cursor-default flex-1`}
+                >
+                  <div
+                    className={`shrink-0 flex w-14 h-14 rounded-xl bg-gradient-to-br ${card.accent} items-center justify-center shadow-md`}
+                  >
+                    <Icon
+                      className={`w-6 h-6 ${card.iconColor}`}
+                      strokeWidth={1.8}
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-slate-900 font-bold text-lg mb-1.5 leading-snug group-hover:text-blue-700 transition-colors">
+                      {card.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      {card.body}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -190,7 +247,8 @@ const STEPS = [
     icon: Search,
     color: "blue",
     body: "Understand your business, infrastructure, risk profile, and where performance and cost are not aligned.",
-    outcome: "A clear view of your current technology posture and a practical roadmap.",
+    outcome:
+      "A clear view of your current technology posture and a practical roadmap.",
   },
   {
     num: "02",
@@ -270,7 +328,9 @@ function FrameworkSection() {
                 }`}
               >
                 <div className="flex items-start justify-between mb-6">
-                  <div className={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${STEP_COLOR[step.color]} items-center justify-center shadow-lg`}>
+                  <div
+                    className={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${STEP_COLOR[step.color]} items-center justify-center shadow-lg`}
+                  >
                     <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
                   </div>
                   <span className="text-slate-700 font-mono font-bold text-2xl select-none">
@@ -278,14 +338,21 @@ function FrameworkSection() {
                   </span>
                 </div>
 
-                <div className={`inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border mb-4 ${STEP_BADGE[step.color]}`}>
+                <div
+                  className={`inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border mb-4 ${STEP_BADGE[step.color]}`}
+                >
                   {step.label}
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">{step.body}</p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  {step.body}
+                </p>
 
                 <motion.div
-                  animate={{ height: isActive ? "auto" : 0, opacity: isActive ? 1 : 0 }}
+                  animate={{
+                    height: isActive ? "auto" : 0,
+                    opacity: isActive ? 1 : 0,
+                  }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
@@ -296,7 +363,9 @@ function FrameworkSection() {
                         <p className="text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-1">
                           Outcome
                         </p>
-                        <p className="text-emerald-100/90 text-sm leading-snug">{step.outcome}</p>
+                        <p className="text-emerald-100/90 text-sm leading-snug">
+                          {step.outcome}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -359,7 +428,9 @@ function ImpactBanner() {
               <div className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-2">
                 {m.value}
               </div>
-              <p className="text-slate-500 text-sm leading-snug max-w-[140px] mx-auto">{m.label}</p>
+              <p className="text-slate-500 text-sm leading-snug max-w-[140px] mx-auto">
+                {m.label}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -376,7 +447,8 @@ const CASE_STUDIES = [
     icon: Building2,
     tag: "AEC",
     tagColor: "bg-violet-50 text-violet-700 border-violet-200",
-    challenge: "Slow VDI & File latency severely degrading design team productivity.",
+    challenge:
+      "Slow VDI & File latency severely degrading design team productivity.",
     solution: "GPU-enabled Private Cloud with dedicated high-speed storage.",
     outcome: "$250K+ Productivity recovered",
     outcomeColor: "text-emerald-600",
@@ -389,7 +461,8 @@ const CASE_STUDIES = [
     icon: Scale,
     tag: "Legal",
     tagColor: "bg-blue-50 text-blue-700 border-blue-200",
-    challenge: "Billable time leakage due to slow, unreliable systems and security concerns.",
+    challenge:
+      "Billable time leakage due to slow, unreliable systems and security concerns.",
     solution: "Secure private cloud with Managed Detection & Response (MDR).",
     outcome: "$995K Revenue recovered",
     outcomeColor: "text-emerald-600",
@@ -439,10 +512,14 @@ function CaseStudies() {
                 className={`group bg-white border border-slate-200 ${cs.accentBorder} rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 cursor-default`}
               >
                 <div className="flex items-start justify-between mb-6">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cs.iconBg} flex items-center justify-center shadow-lg`}>
+                  <div
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cs.iconBg} flex items-center justify-center shadow-lg`}
+                  >
                     <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
                   </div>
-                  <span className={`text-xs font-semibold border px-3 py-1 rounded-full ${cs.tagColor}`}>
+                  <span
+                    className={`text-xs font-semibold border px-3 py-1 rounded-full ${cs.tagColor}`}
+                  >
                     {cs.tag} · {cs.id}
                   </span>
                 </div>
@@ -453,19 +530,33 @@ function CaseStudies() {
 
                 <div className="space-y-4">
                   {[
-                    { label: "Challenge", value: cs.challenge, color: "text-slate-600" },
-                    { label: "Solution", value: cs.solution, color: "text-slate-600" },
+                    {
+                      label: "Challenge",
+                      value: cs.challenge,
+                      color: "text-slate-600",
+                    },
+                    {
+                      label: "Solution",
+                      value: cs.solution,
+                      color: "text-slate-600",
+                    },
                   ].map(({ label, value, color }) => (
                     <div key={label}>
-                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">{label}</p>
-                      <p className={`text-sm ${color} leading-relaxed`}>{value}</p>
+                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">
+                        {label}
+                      </p>
+                      <p className={`text-sm ${color} leading-relaxed`}>
+                        {value}
+                      </p>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-slate-100 flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0" />
-                  <span className={`font-bold text-lg ${cs.outcomeColor}`}>{cs.outcome}</span>
+                  <span className={`font-bold text-lg ${cs.outcomeColor}`}>
+                    {cs.outcome}
+                  </span>
                 </div>
               </motion.div>
             );
@@ -526,7 +617,11 @@ function Footer() {
         </div>
         <div className="flex items-center gap-6">
           {["Privacy Policy", "Terms of Service", "Sitemap"].map((link) => (
-            <a key={link} href="#" className="text-slate-500 hover:text-slate-300 text-sm transition-colors">
+            <a
+              key={link}
+              href="#"
+              className="text-slate-500 hover:text-slate-300 text-sm transition-colors"
+            >
               {link}
             </a>
           ))}
