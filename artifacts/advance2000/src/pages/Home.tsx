@@ -651,36 +651,41 @@ const PROOF_METRICS = [
 
 function ProofMetrics() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-100">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative z-20 -mt-8 mx-4 sm:mx-8 lg:mx-auto max-w-6xl">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="bg-white rounded-2xl shadow-2xl shadow-black/20 border border-slate-100 overflow-hidden"
+      >
         <div
           ref={ref}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-slate-100 rounded-2xl overflow-hidden shadow-sm"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-x divide-y sm:divide-y-0 divide-slate-100"
         >
           {PROOF_METRICS.map((m, i) => (
             <motion.div
               key={m.value}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.08 + i * 0.09, ease: "easeOut" }}
-              className="bg-white px-6 py-10 flex flex-col items-center text-center group hover:bg-blue-50 transition-colors duration-200"
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.09, ease: "easeOut" }}
+              className="px-6 py-8 flex flex-col items-center text-center group hover:bg-blue-50/50 transition-colors duration-200"
             >
               <div className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-none mb-1">
                 {m.value}
               </div>
               {m.label && (
-                <span className="text-blue-500 text-sm font-semibold mb-2">{m.label}</span>
+                <span className="text-blue-500 text-xs font-semibold">{m.label}</span>
               )}
-              <p className="text-slate-400 text-xs sm:text-sm leading-snug mt-2 max-w-[130px]">
+              <p className="text-slate-500 text-xs sm:text-sm leading-snug mt-2 max-w-[120px] font-medium">
                 {m.desc}
               </p>
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -783,9 +788,9 @@ export default function Home() {
     <div className="font-sans antialiased">
       <Navbar />
       <HeroSection />
+      <ProofMetrics />
       <ServicesSection />
       <ValuePillars />
-      <ProofMetrics />
       <ExecutiveInsights />
       <WhySection />
       <CTASection />
