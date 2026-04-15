@@ -66,7 +66,7 @@ const INDUSTRIES = [
 const FLAT_LINKS = [
   { label: "Who We Are", href: "#" },
   { label: "Our Approach", href: "/our-approach" },
-  { label: "Careers", href: "#" },
+  { label: "Careers", href: "/careers" },
 ];
 
 /* ── Mega-menu panel ────────────────────────────────── */
