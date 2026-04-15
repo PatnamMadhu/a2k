@@ -1,5 +1,6 @@
 {
-  "buildCommand": "pnpm run build",
-  "installCommand": "pnpm install",
-  "framework": "vite"
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && pnpm -F '@workspace/advance2000' run build",
+  "framework": "vite",
+  "outputDirectory": "artifacts/advance2000/dist"
 }
