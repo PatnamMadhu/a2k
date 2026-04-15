@@ -10,6 +10,10 @@ import {
   ArrowRight,
   CheckCircle,
   Phone,
+  TrendingDown,
+  Server,
+  ShieldCheck,
+  Target,
 } from "lucide-react";
 
 const NAV_LINKS = [
@@ -600,6 +604,220 @@ function Footer() {
   );
 }
 
+/* ─────────────────────────────────────────────
+   CORE VALUE PILLARS (dark cards)
+───────────────────────────────────────────── */
+const VALUE_PILLARS = [
+  {
+    icon: TrendingDown,
+    headline: "Lower, and more predictable cost than fragmented alternatives",
+    accent: "from-blue-500 to-cyan-500",
+    glow: "hover:shadow-blue-500/20",
+  },
+  {
+    icon: Server,
+    headline: "Faster systems with dedicated private cloud performance",
+    accent: "from-cyan-500 to-teal-500",
+    glow: "hover:shadow-cyan-500/20",
+  },
+  {
+    icon: ShieldCheck,
+    headline: "Built-in cybersecurity, visibility, and real accountability",
+    accent: "from-violet-500 to-indigo-500",
+    glow: "hover:shadow-violet-500/20",
+  },
+];
+
+function ValuePillars() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <section className="bg-slate-900 py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <span className="inline-block bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
+            The Advance2000 Difference
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            One partner. Complete accountability.
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {VALUE_PILLARS.map((pillar, i) => {
+            const Icon = pillar.icon;
+            return (
+              <motion.div
+                key={pillar.headline}
+                initial={{ opacity: 0, y: 28 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className={`group relative rounded-2xl border border-slate-700/60 bg-slate-800/60 backdrop-blur-sm p-8 shadow-lg hover:shadow-xl ${pillar.glow} hover:border-slate-600 transition-all duration-300 overflow-hidden`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none rounded-2xl" />
+                <div className={`inline-flex w-12 h-12 rounded-xl bg-gradient-to-br ${pillar.accent} items-center justify-center mb-6 shadow-lg`}>
+                  <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
+                </div>
+                <p className="text-white/90 font-semibold text-lg leading-snug">
+                  {pillar.headline}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   PROOF METRICS (stat bar)
+───────────────────────────────────────────── */
+const PROOF_METRICS = [
+  { value: "2X", desc: "The performance of traditional public clouds" },
+  { value: "50%", desc: "Lower cost potential vs. fragmented public cloud stacks" },
+  { value: "30+", desc: "Years supporting business-critical IT environments" },
+  { value: "24x7", desc: "Live support coverage with proactive oversight" },
+  { value: "4.7/5", label: "Stars", desc: "End-user satisfaction driven by accountability" },
+];
+
+function ProofMetrics() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-y border-slate-100">
+      <div className="max-w-7xl mx-auto">
+        <div
+          ref={ref}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-slate-100 rounded-2xl overflow-hidden shadow-sm"
+        >
+          {PROOF_METRICS.map((m, i) => (
+            <motion.div
+              key={m.value}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.08 + i * 0.09, ease: "easeOut" }}
+              className="bg-white px-6 py-10 flex flex-col items-center text-center group hover:bg-blue-50 transition-colors duration-200"
+            >
+              <div className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent leading-none mb-1">
+                {m.value}
+              </div>
+              {m.label && (
+                <span className="text-blue-500 text-sm font-semibold mb-2">{m.label}</span>
+              )}
+              <p className="text-slate-400 text-xs sm:text-sm leading-snug mt-2 max-w-[130px]">
+                {m.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   EXECUTIVE INSIGHTS
+───────────────────────────────────────────── */
+const INSIGHTS = [
+  {
+    text: "Find where your business is overpaying for underperforming IT",
+    subtext: "Cost & efficiency analysis across your full technology stack",
+  },
+  {
+    text: "Identify hidden operational and cybersecurity exposure",
+    subtext: "Risk mapping that surfaces vulnerabilities leadership cannot see",
+  },
+  {
+    text: "See what a more accountable IT model can do for you",
+    subtext: "Benchmark your environment against what best-in-class looks like",
+  },
+];
+
+function ExecutiveInsights() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <section className="bg-slate-50 py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="inline-block bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full border border-blue-100 mb-4">
+            Executive View
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            What executives need to know
+          </h2>
+        </motion.div>
+
+        <div className="flex flex-col gap-4">
+          {INSIGHTS.map((insight, i) => (
+            <motion.div
+              key={insight.text}
+              initial={{ opacity: 0, x: -24 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.1 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ scale: 1.015, transition: { duration: 0.18 } }}
+              className="group relative flex items-center gap-6 bg-white border border-slate-200 hover:border-blue-300 rounded-2xl px-8 py-7 shadow-sm hover:shadow-lg hover:shadow-blue-500/8 transition-all duration-300 cursor-default overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-50/0 via-blue-50/0 to-blue-50/0 group-hover:from-blue-50/40 group-hover:via-transparent transition-all duration-500 pointer-events-none rounded-2xl" />
+
+              <div className="shrink-0 w-10 h-10 rounded-xl bg-blue-50 group-hover:bg-blue-100 border border-blue-100 group-hover:border-blue-200 flex items-center justify-center transition-all duration-200">
+                <Target className="w-5 h-5 text-blue-500" strokeWidth={1.8} />
+              </div>
+
+              <div className="flex-1 min-w-0">
+                <p className="text-slate-900 font-semibold text-base sm:text-lg leading-snug group-hover:text-blue-900 transition-colors">
+                  {insight.text}
+                </p>
+                <p className="text-slate-400 text-sm mt-1 leading-snug">{insight.subtext}</p>
+              </div>
+
+              <div className="shrink-0 ml-auto">
+                <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-200" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.55, delay: 0.5 }}
+          className="mt-10 text-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-500/35"
+          >
+            Get Your Free Assessment
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   PAGE EXPORT
+───────────────────────────────────────────── */
 export default function Home() {
   return (
     <div className="font-sans antialiased">
@@ -607,6 +825,9 @@ export default function Home() {
       <HeroSection />
       <StatsBanner />
       <ServicesSection />
+      <ValuePillars />
+      <ProofMetrics />
+      <ExecutiveInsights />
       <WhySection />
       <CTASection />
       <Footer />

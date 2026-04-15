@@ -1,0 +1,40 @@
+Act as an Expert UI/UX Designer and Senior Frontend Engineer. I need to build a high-fidelity React component that modernizes a specific section of the Advance2000 homepage.
+
+Tech Stack: React, Tailwind CSS, Framer Motion (for scroll animations), and Lucide React (for icons).
+
+Design Language: 
+- "Top 10" modern corporate UI (e.g., Stripe, Vercel, Linear). 
+- Clean, breathable, high-contrast design.
+- Fully responsive (mobile-first).
+
+Please build a continuous, flowing section with the following 3 sub-components, using the exact text provided:
+
+1. The Core Value Pillars (Dark Mode Cards)
+- Layout: A 3-column grid.
+- Styling: Premium deep navy/slate cards with rounded corners (rounded-2xl) and a subtle hover-lift effect. 
+- Content & Icons: 
+  - Card 1: Add a "Wallet" or "TrendingDown" icon. Text: "Lower, and more predictable cost than fragmented alternatives"
+  - Card 2: Add a "Zap" or "Server" icon. Text: "Faster systems with dedicated private cloud performance"
+  - Card 3: Add a "ShieldCheck" icon. Text: "Built-in cybersecurity, visibility, and real accountability"
+- Typography: Crisp white text, icons in a vibrant electric blue/teal accent.
+
+2. The Proof Metrics (Minimalist Stat Bar)
+- Layout: A 5-column flex or grid layout directly below the dark cards.
+- Styling: Light, airy background. Clean layout to let the numbers breathe. Add Framer Motion so the numbers fade/slide up as they enter the viewport.
+- Content (Make the numbers massive, bold, and colored in the primary accent blue, with the description text small and muted gray):
+  - "2X" | "The performance of traditional public clouds"
+  - "50%" | "Lower cost potential vs. fragmented public cloud stacks"
+  - "30+" | "Years supporting business-critical IT environments"
+  - "24x7" | "Live support support coverage with proactive oversight"
+  - "4.7/5 Stars" | "End-user satisfaction driven by accountability"
+
+3. Executive Insights (Interactive List/Bento)
+- Heading: Centered above this section, bold: "What executives need to know"
+- Layout: 3 wide, horizontal cards stacked, OR a 3-column grid of pill-shaped cards.
+- Styling: Glassmorphic or very subtle light gray background with a glowing hover border. Add an "ArrowRight" or "Target" icon to each to make them feel actionable.
+- Content:
+  - "Find where your business is overpaying for underperforming IT"
+  - "Identify hidden operational and cybersecurity exposure"
+  - "See what a more accountable IT model can do for you"
+
+Ensure the code is a single, complete, copy-pasteable React file. Focus heavily on layout precision, spacing (use ample padding like py-20 for the main wrapper), and a premium look and feel.
