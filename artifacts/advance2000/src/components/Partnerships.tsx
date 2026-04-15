@@ -26,11 +26,47 @@ const LOGOS = [
   "https://www.advance2000.com/wp-content/uploads/2024/12/microsoft-logo-microsoft-icon-transparent-free-png.png",
 ];
 
+const mid = Math.ceil(LOGOS.length / 2);
+const TOP_LOGOS = LOGOS.slice(0, mid);
+const BOT_LOGOS = LOGOS.slice(mid);
+
+function MarqueeTrack({
+  logos,
+  direction,
+}: {
+  logos: string[];
+  direction: "left" | "right";
+}) {
+  const animClass =
+    direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
+
+  const strip = [...logos, ...logos];
+
+  return (
+    <div className="marquee-track overflow-hidden">
+      <div className={`flex gap-12 w-max ${animClass}`}>
+        {strip.map((src, i) => (
+          <div
+            key={i}
+            className="flex items-center justify-center shrink-0 h-12 w-32"
+          >
+            <img
+              src={src}
+              alt={`Partner ${i + 1}`}
+              className="max-h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Partnerships() {
   return (
     <section className="bg-white px-4 sm:px-6 lg:px-8 pb-16">
       <div className="max-w-6xl mx-auto border-t border-slate-200 pt-16">
-        <div className="flex flex-col md:flex-row md:items-start md:gap-12">
+        <div className="flex flex-col md:flex-row md:items-start md:gap-12 mb-12">
           <h2 className="text-slate-900 font-extrabold text-3xl sm:text-4xl tracking-tight shrink-0 mb-6 md:mb-0">
             Partnerships
           </h2>
@@ -43,15 +79,26 @@ export default function Partnerships() {
           </p>
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center items-center gap-8 md:gap-12">
-          {LOGOS.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt={`Partner logo ${i + 1}`}
-              className="h-10 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-            />
-          ))}
+        <div className="relative">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24"
+            style={{
+              background:
+                "linear-gradient(to right, white 0%, transparent 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24"
+            style={{
+              background:
+                "linear-gradient(to left, white 0%, transparent 100%)",
+            }}
+          />
+
+          <div className="flex flex-col gap-6 overflow-hidden">
+            <MarqueeTrack logos={TOP_LOGOS} direction="left" />
+            <MarqueeTrack logos={BOT_LOGOS} direction="right" />
+          </div>
         </div>
       </div>
     </section>
