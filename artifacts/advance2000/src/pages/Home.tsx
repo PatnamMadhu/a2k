@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   Target,
 } from "lucide-react";
+import HeroCanvas from "@/components/HeroCanvas";
 import { WhatWeDoContent } from "@/pages/WhatWeDo";
 import Partnerships from "@/components/Partnerships";
 import ContactSection from "@/components/ContactSection";
@@ -46,24 +47,7 @@ function HeroSection() {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
 
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-px bg-gradient-to-b from-transparent via-blue-400/30 to-transparent"
-            style={{
-              left: `${10 + i * 16}%`,
-              height: "60%",
-              top: "20%",
-            }}
-            animate={{ opacity: [0.3, 0.8, 0.3], scaleY: [0.8, 1, 0.8] }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              delay: i * 0.4,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        <HeroCanvas />
       </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pt-24">
