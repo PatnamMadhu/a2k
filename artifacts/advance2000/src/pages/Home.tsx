@@ -83,9 +83,12 @@ function Navbar() {
           <button className="text-white/80 hover:text-white border border-white/20 hover:border-white/40 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 backdrop-blur-sm">
             Client Login
           </button>
-          <button className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40">
+          <a
+            href="/contact"
+            className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 shadow-lg shadow-blue-500/30 hover:shadow-blue-400/40"
+          >
             Contact Us
-          </button>
+          </a>
         </motion.div>
 
         <button
