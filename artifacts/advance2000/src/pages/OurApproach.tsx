@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import OrbitalCanvas from "@/components/OrbitalCanvas";
 import { motion, useInView } from "framer-motion";
 import {
   Zap,
@@ -31,24 +32,10 @@ function HeroSection() {
   return (
     <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pt-16">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/12 rounded-full blur-[120px]" />
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-3xl" />
-        <svg
-          className="absolute inset-0 w-full h-full opacity-[0.04]"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="dots"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <circle cx="1" cy="1" r="1" fill="#60a5fa" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dots)" />
-        </svg>
+        {/* deep ambient glows — keep depth behind the orbital rings */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-700/10 rounded-full blur-[140px]" />
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-cyan-600/6 rounded-full blur-3xl" />
+        <OrbitalCanvas />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
