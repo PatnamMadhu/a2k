@@ -1,4 +1,4 @@
-import { PhoneCall, Send, MapPin } from "lucide-react";
+import { Cloud, PhoneCall, Send, MapPin } from "lucide-react";
 
 const FOOTER_LINKS = [
   {
@@ -88,13 +88,13 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1">
-            <a href="/" className="inline-flex mb-6">
-              <img
-                src="https://www.advance2000.com/wp-content/uploads/2024/07/advance2000logo.png"
-                alt="Advance2000"
-                className="h-8 w-auto object-contain"
-                style={{ filter: "brightness(0) invert(1)" }}
-              />
+            <a href="/" className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center shrink-0">
+                <Cloud className="w-4 h-4 text-white" strokeWidth={2.5} />
+              </div>
+              <span className="text-white font-extrabold text-xl tracking-tight">
+                ADVANCE<span className="text-cyan-400">2000</span>
+              </span>
             </a>
 
             <div className="flex flex-col gap-3">
