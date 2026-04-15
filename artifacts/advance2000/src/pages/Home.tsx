@@ -13,6 +13,7 @@ import {
   Target,
 } from "lucide-react";
 import { WhatWeDoContent } from "@/pages/WhatWeDo";
+import Partnerships from "@/components/Partnerships";
 
 const NAV_LINKS = [
   { label: "What We Do", href: "/what-we-do" },
@@ -670,6 +671,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProofMetrics />
+      <Partnerships />
       <WhatWeDoContent />
       <ValuePillars />
       <ExecutiveInsights />

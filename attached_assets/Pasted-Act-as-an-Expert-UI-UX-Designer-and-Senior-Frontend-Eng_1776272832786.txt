@@ -1,0 +1,53 @@
+Act as an Expert UI/UX Designer and Senior Frontend Engineer. Build a React component for a "Partnerships" logo showcase section.
+
+Tech Stack: React, Tailwind CSS.
+
+Design Language: 
+- Clean, bright corporate aesthetic.
+- Background: White (bg-white).
+- Text: Dark slate (text-slate-900 for headings, text-slate-600 for body).
+- Logos: Should be rendered using a grayscale filter and slight transparency, which turns to full color and full opacity on hover (Tailwind classes: `grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`).
+
+Please build the component with the following structure:
+
+1. Top Container:
+- Add a subtle 1px top border line (border-t border-slate-200) with top padding (pt-16).
+- Use a flex layout (column on mobile, row on desktop) to split the header text.
+- Left side: A bold, large heading "Partnerships".
+- Right side (max-width of roughly 60% on desktop): The following paragraph text: "It requires a strong ecosystem of strategic partnerships aligned around innovation, performance, and trust to build great business solutions. We continuously evaluate, test, and adopt emerging technologies to ensure our clients stay secure, competitive, and ahead of what's next."
+
+2. Logo Grid:
+- Create a container below the text with top margin (mt-12).
+- Use a flex-wrap layout, perfectly centering the logos with equal gap spacing (gap-8 md:gap-12).
+- Create an array of objects for the logos using the provided URLs and map over them. Each logo image should be constrained to a reasonable height (e.g., h-10 or h-12) with object-fit contain.
+
+Here is the exact array of image URLs to map through:
+const logos = [
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-1.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-2.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-3.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/primary-logo-1.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-5.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-6.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/omnissa_tm-logo-clr-rgb.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-8.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-9.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/07/greyscale_HP-10.svg",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Sophos_logo.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Synology_Logo.svg.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Tenable_Inc._logo.svg.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Ubiquiti_Logo_Horizontal.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Yealink_logo.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Zoom-Logo-Vector-1-1.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/4e35fb7c-c690-4571-841b-d1b7368c67cc-e1726751557309.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Alcatel_Lucent_Enterprise_Logo.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Barracuda-Networks-logo.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Godaddylogo_2020.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Hewlett_Packard_Enterprise_logo.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Lenovo-Logo-Transparent-PNG.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/Logitech_logo.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/logo-10zig.png",
+  "https://www.advance2000.com/wp-content/uploads/2024/12/microsoft-logo-microsoft-icon-transparent-free-png.png"
+];
+
+Ensure the component is fully responsive and return the complete code in a single file.
